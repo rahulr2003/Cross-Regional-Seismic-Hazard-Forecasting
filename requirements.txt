@@ -1,0 +1,29 @@
+# requirements.txt
+# Seismic Hazard GNN — Python dependencies
+
+# Core ML
+torch>=2.0.0
+torch_geometric>=2.3.0
+
+# PyG dependencies (install separately if torch_geometric fails)
+# pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv \
+#     -f https://data.pyg.org/whl/torch-${TORCH_VERSION}+${CUDA_VERSION}.html
+
+# Numerical
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Data handling
+pandas>=2.0.0
+
+# ML utilities
+scikit-learn>=1.3.0
+
+# Geospatial (needed for prior building on cluster)
+# Only required if running build_prior_for_cycle — not needed for training
+# geopandas>=0.13.0
+# rasterio>=1.3.0
+# pykrige>=1.7.0
+
+# Experiment tracking (optional but recommended)
+# wandb>=0.15.0
