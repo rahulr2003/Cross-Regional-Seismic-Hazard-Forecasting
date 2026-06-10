@@ -61,30 +61,7 @@ GeoSeisML-12 is the first multi-regime ML-ready seismic hazard benchmark, compri
 
 ## Architecture
 
-```
-Static Geological Features (N×12) ──┐
-                                     ├──► Geological Encoder [FROZEN · 13,152 params]
-Geological Prior Probabilities (N×6) ┘         │
-                                            z_geo (N×32)
-                                                │ injected at every timestep
-Temporal Seismicity Features (N×T×17) ──► Edge Weight Scaler [ADAPTIVE · 2 params]
-                                                │
-                                                ▼
-                                     Temporal GNN Backbone [FROZEN · 181,376 params]
-                                     Graph Transformer ×2 + GRU
-                                                │
-                                         node_embed (N×64)
-                                                │
-                                     concat(node_embed, z_geo) → (N×96)
-                                                │
-                                     Prediction Head [ADAPTIVE · 3,138 params]
-                                                │
-                                     Calibration Layer [ADAPTIVE · 1 param]
-                                                │
-                                          P(hazard) (N×T)
-
-Total: 197,669 params  |  Frozen: 194,528 (98.4%)  |  Adaptive: 3,141 (1.6%)
-```
+![Architecture Diagram](Architecture_Diagram.png)
 
 ---
 
